@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        div{
+            border: 7px solid rgb(229, 235, 233);
+            position: fixed;
+            top: 40%;
+            left: 40%;
+            background-color: white;
+        }
+        input{
+            margin-bottom: 20px;
+        }
+        form{
+            margin: 30px;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(160, 192, 156);">
+
+    <div id="main">
+   <form id="myForm"> 
+    <input id="user_input" type="text" placeholder="User name" required >
+    <br/>
+    <input id="user_pass" type="password" placeholder="Password" required>
+    <br/>
+    <input type="submit"  value="Login" style="background-color: rgb(82, 143, 82); width: 180px;" >
+   </form >
+</div>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", showInput);
+       
+    function showInput() {
+        var user = document.getElementById("user_input").value;
+        var pass = document.getElementById("user_pass").value;
+        if(user =="admin" && pass==123){
+     document.write("Welecom" +"    " +document.getElementById("user_input").value) ;
+    }
+    else{
+        document.write("Not Registered");
+    }
+}
+    </script>
+</body>
+</html>

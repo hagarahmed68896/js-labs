@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            background-color: rgb(226, 229, 232);
+            border-radius: 5px;
+            border: 5px solid whitesmoke;
+            padding: 30px;
+            position: absolute;
+            top: 30%;
+            left: 12%;
+            width: 70%;
+        }
+    .child1{
+      border-radius: 2px;
+      border: 2px solid whitesmoke;
+      padding: 20px;
+    }
+     .yes{
+       float: right;
+       background-color: rgb(65, 156, 65);
+    }
+     .no{
+       float: right;
+       background-color: rgb(246, 75, 75);
+       margin-right: 5px ;
+    }
+    </style>
+</head>
+
+<body>
+    
+    <div id="main">
+        <div id="lecture" class="child1"><span id="alec">Attend</span> Lec 6 <button onclick="completelec();" class="yes">&radic;</button > <button onclick="deletelec();" class="no">&times;</button> </div>
+        <div  id="labb" class="child1"><span id="alab">Attend </span>Lab 6 <button onclick="completelab();" class="yes">&radic;</button> <button onclick="deletelab();" class="no">&times;</button></div>
+        <div id="bon"class="child1"><span id="ab">Attend </span>Bouns <button onclick="completebouns();" class="yes">&radic;</button> <button onclick="deletebouns();" class="no">&times;</button></div>
+        <hr>
+        <center>
+            
+        Task <input id="user_input"  type="text" placeholder="Task name"> <input  type="submit"value="Add" onclick="taskInput();" >
+       
+       </center>
+    </div>
+    <script>
+     document.getElementById("myForm").addEventListener("submit", taskInput);
+     function taskInput(){
+      var user = document.getElementById("user_input").value;
+      var lec = document.getElementById("lecture");
+      var lab = document.getElementById("labb");
+      var bouns = document.getElementById("bon");
+      if(user =="Attend Lec 6"){
+          lec.style.cssText = "background:rgb(65, 170, 65)";
+                }
+      else if(user =="Attend Lab 6"){
+        lab.style.cssText = "background:rgb(65, 156, 65)";
+      }
+      else if(user =="Attend Bouns"){
+        bouns.style.cssText = "background:rgb(65, 156, 65)";
+      }
+            }
+         function completelec(){
+            var lec = document.getElementById("lecture");
+            var oldlec = document.getElementById("alec");
+            var newhint = document.createElement("span");
+            var complete = document.createTextNode("Complete");
+            newhint.appendChild(complete);
+            lec.replaceChild(newhint,oldlec);
+         }
+         function completelab(){
+            var lab = document.getElementById("labb");
+            var oldlab = document.getElementById("alab");
+            var newhint = document.createElement("span");
+            var complete = document.createTextNode("Complete");
+            newhint.appendChild(complete);
+            lab.replaceChild(newhint,oldlab);
+         }
+         function completebouns(){
+            var bouns = document.getElementById("bon");
+            var oldbouns = document.getElementById("ab");
+            var newhint = document.createElement("span");
+            var complete = document.createTextNode("Complete");
+            newhint.appendChild(complete);
+            bouns.replaceChild(newhint,oldbouns);
+         }
+        function deletelec(){
+            var parent = document.getElementById("main");
+            var lec = document.getElementById("lecture");
+            parent.removeChild(lec);
+        }
+        function deletelab(){
+            var parent = document.getElementById("main");
+            var lab = document.getElementById("labb");
+            parent.removeChild(lab);
+        }
+        function deletebouns(){
+            var parent = document.getElementById("main");
+            var bouns = document.getElementById("bon");
+            parent.removeChild(bouns);
+        }
+    </script>
+</body>
+</html>
